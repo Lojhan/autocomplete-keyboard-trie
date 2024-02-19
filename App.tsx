@@ -1,11 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
+import { Keyboard } from "./src/components/keyboard";
+import { AutocompleteOptions } from "./src/components/autocompleteOptions";
+import { TextInput } from "./src/components/textInput";
+import { KeyboardProvider } from "./src/contexts/keyboardContext";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <KeyboardProvider>
+        <TextInput />
+        <AutocompleteOptions />
+        <Keyboard />
+        <StatusBar style="auto" />
+      </KeyboardProvider>
     </View>
   );
 }
@@ -13,8 +21,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "black",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    paddingBottom: 20,
   },
 });
